@@ -9,7 +9,6 @@ body {
   /* background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f1f1f1 32px ), repeating-linear-gradient( #b7b9da55, #b7b9da ); */
 
   background-color: #f1f1f1;
-  opacity: 0.8;
   background-image: radial-gradient(#b7b9da 1.6px, transparent 1.6px), radial-gradient(#b7b9da 1.6px, #f1f1f1 1.6px);
   background-size: 64px 64px;
   background-position: 0 0, 32px 32px;
