@@ -7,6 +7,7 @@ import{
   Route,
   Routes
 } from "react-router-dom";
+import Alert from './Component/Alert';
 
 export default class App extends Component {
   pageSize = "10";
@@ -14,7 +15,7 @@ export default class App extends Component {
     return (
       <Router>
         <Navbar />
-        {/* <News pageSize={this.pageSize} country="in" category="sports"/> */}
+        <Alert />
         <Routes>
         <Route exact path="/" element={<News key="general" pageSize={this.pageSize} country="us" category="general"/>} />
         <Route exact path="/sports" element={<News key="sports" pageSize={this.pageSize} country="us" category="sports"/>} />

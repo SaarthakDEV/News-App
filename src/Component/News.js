@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from 'prop-types';
+import getData from "../SAMPLE_DATA";
 
 export class News extends Component {
   API_KEY = "5452378c412843aabacf97cf45327e7f";
@@ -28,10 +29,11 @@ export class News extends Component {
   }
 
   async updateNews() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.API_KEY}&page=${this.state.page}&pagesize=${this.props.pageSize}`;
+    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.API_KEY}&page=${this.state.page}&pagesize=${this.props.pageSize}`;
     this.setState({ loading: true });
-    let data = await fetch(url);
-    let parsedData = await data.json();
+    // let data = await fetch(url);
+    let parsedData = getData(this.props.category)
+    // let parsedData = await data.json();
     this.setState({ loading: false });
     this.setState({ articles: parsedData.articles });
     // document.title = "News Monkey - " + this.props.category;
@@ -71,8 +73,8 @@ export class News extends Component {
           })}
         </div>
         <div className="container d-flex justify-content-around my-5">
-          <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&lt;&nbsp; Prev</button>
-          <button disabled={Math.ceil(this.state.totalResults / this.props.pagesize) < this.state.page + 1} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &nbsp; &gt;</button>
+          <button disabled={true} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&lt;&nbsp; Prev</button>
+          <button disabled={true} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &nbsp; &gt;</button>
 
         </div>
       </div>
